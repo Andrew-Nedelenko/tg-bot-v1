@@ -1,7 +1,7 @@
 import { curly } from 'node-libcurl';
 import { env } from '../util/Env';
 
-type CurrencyData = {
+export type CurrencyData = {
   StartDate: string,
   TimeSign: string,
   CurrencyCode: string,

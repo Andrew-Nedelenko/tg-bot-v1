@@ -1,5 +1,5 @@
-import { bot } from './bot';
+import { CurrencyBot } from './bot';
 
-bot.launch();
+new CurrencyBot().launch();
 
 global.console.info('Node app has been started!');

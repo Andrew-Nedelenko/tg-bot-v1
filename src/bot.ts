@@ -19,7 +19,9 @@ export class CurrencyBot {
     const groupBy = new CurrencyAdapter(currencyList).makeRegExp();
     const currencyHears = new RegExp(groupBy);
     this.bot.hears(currencyHears, (ctx) => {
-      ctx.reply(`ok ${ctx.match.input}`);
+      const [filteredBySlug] = currencyList.filter((item) => item
+        .CurrencyCodeL === ctx.match.input);
+      ctx.reply(`${ctx.match.input} - ${filteredBySlug?.Amount}`);
     });
   }
 
@@ -29,14 +31,3 @@ export class CurrencyBot {
     this.initHears();
   }
 }
-
-// export const bot = new Telegraf(env('BOT_TOKEN'));
-
-// bot.start((ctx) => ctx.reply('Hello I am currency bot. \n /list - list of all currencies'));
-
-// bot.command('/list', listCurrency);
-
-// bot.hears(/\*/, (ctx) => {
-//   console.log(ctx.match.input);
-//   ctx.reply(`${ctx.match.input} is..`);
-// });

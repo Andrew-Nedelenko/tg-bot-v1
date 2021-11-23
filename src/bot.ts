@@ -19,9 +19,9 @@ export class CurrencyBot {
     const groupBy = new CurrencyAdapter(currencyList).makeRegExp();
     const currencyHears = new RegExp(groupBy);
     this.bot.hears(currencyHears, (ctx) => {
-      const [filteredBySlug] = currencyList.filter((item) => item
+      const [filteredBySlug] = currencyList.filter((item: any) => item
         .CurrencyCodeL === ctx.match.input);
-      ctx.reply(`${ctx.match.input} - ${filteredBySlug?.Amount}`);
+      ctx.reply(`${ctx.match.input} - ${filteredBySlug.text} - ${filteredBySlug?.Amount}`);
     });
   }
 

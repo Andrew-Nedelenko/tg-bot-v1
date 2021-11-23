@@ -11,7 +11,7 @@ export class CurrencyAdapter {
 
   forRender() {
     return this.data
-      .map((item) => ({ text: item.CurrencyCodeL, callback_data: item.CurrencyCode }))
+      .map((item) => ({ text: item.cc, callback_data: item.r030 }))
       .reduce((acc: any, _, i, array) => {
         if (i % this.quantity! === 0) acc.push(array.slice(i, i + this.quantity!));
         return acc;
@@ -19,6 +19,6 @@ export class CurrencyAdapter {
   }
 
   makeRegExp() {
-    return this.data.map(({ CurrencyCodeL }) => `${CurrencyCodeL}`).toString().replace(/,/g, '|');
+    return this.data.map(({ cc }) => `${cc}`).toString().replace(/,/g, '|');
   }
 }

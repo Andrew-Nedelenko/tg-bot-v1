@@ -2,12 +2,11 @@ import { curly } from 'node-libcurl';
 import { env } from '../util/Env';
 
 export type CurrencyData = {
-  StartDate: string,
-  TimeSign: string,
-  CurrencyCode: string,
-  CurrencyCodeL: string,
-  Units: number,
-  Amount: number
+  r030: number;
+  txt: string;
+  rate: number;
+  cc: string;
+  exchangedate: string;
 }
 
 export class Currency {
